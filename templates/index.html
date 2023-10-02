@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Mypage{% endblock %}
+
+{% block bodyyy %}
+
+<div class="container">
+<form method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Task</label>
+      <input type="text" class="form-control" name="desc" id="exampleInputPassword1">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Todo</th>
+        <th scope="col">Task</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in alltodo %}
+            
+        
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{todo.title}}</td>
+        <td>{{todo.desc}}</td>
+        <td>{{todo.date}}</td>
+        <td><a href="/delete/{{todo.sno}}" type="button" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+{% endblock bodyyy %}
